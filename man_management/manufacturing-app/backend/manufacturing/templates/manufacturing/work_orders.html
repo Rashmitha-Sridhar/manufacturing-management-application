@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Work Orders</title>
+	<link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+<script>/* inline defensive: hide until token */(function(){try{if(!localStorage.getItem('token')){document.documentElement.setAttribute('data-auth','false');} }catch(e){} })();</script>
+	<header><h1>Work Orders</h1></header>
+	<main>
+		<section>
+			<h2>Work Orders</h2>
+			<div id="woList">Loading...</div>
+		</section>
+	</main>
+	<script src="/static/auto-inject-theme.js"></script>
+</body>
+</html>

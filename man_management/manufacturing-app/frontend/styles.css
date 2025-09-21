@@ -1,0 +1,73 @@
+:root{
+	--bg:#0f1724; /* deep slate */
+	--panel:#0b1a2b; /* darker panel */
+	--muted:#98a0ad;
+	--accent:#4fd1c5; /* teal */
+	--accent-2:#7c5cff; /* violet */
+	--card:#081122;
+	--soft-border: rgba(255,255,255,0.06);
+	--glass: rgba(255,255,255,0.03);
+	--radius:10px;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),#071324);color:#e6eef6}
+
+/* Defensive: hide main content and nav until authenticated */
+body:not([data-auth='true']) header nav,
+body:not([data-auth='true']) main > :not(#authControls){
+	display:none !important;
+}
+header{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--soft-border)}
+header h1{font-size:18px;margin:0;color:var(--accent-2);letter-spacing:0.4px}
+nav a{color:var(--muted);text-decoration:none;margin-left:12px;font-size:14px}
+nav a:hover{color:var(--accent)}
+main{padding:22px 28px;display:block}
+#authMessage{color:#ffb4b4}
+#authControls{margin-bottom:12px}
+#loginForm input, #loginForm button, input[type=text], input[type=password], textarea, select{background:var(--card);border:1px solid var(--soft-border);color:var(--muted);padding:8px 10px;border-radius:8px;margin-right:6px}
+/* form rows used across pages */
+.form-row{display:flex;align-items:center;margin-bottom:10px;gap:10px}
+.form-row label{width:130px;color:var(--muted);font-size:14px}
+.form-row input, .form-row select{flex:1;background:var(--card);border:1px solid var(--soft-border);color:var(--muted);padding:8px 10px;border-radius:8px}
+button{background:linear-gradient(90deg,var(--accent),var(--accent-2));border:none;color:#042226;padding:8px 12px;border-radius:8px;cursor:pointer;font-weight:600}
+button.secondary{background:transparent;border:1px solid var(--soft-border);color:var(--muted)}
+button:active{transform:translateY(1px)}
+section{margin-top:18px;background:var(--glass);padding:14px;border-radius:var(--radius);border:1px solid var(--soft-border)}
+h2{margin:0 0 10px 0;font-size:16px;color:#dbeafe}
+.kpi-row{display:flex;gap:10px;margin-bottom:12px}
+.card{flex:1;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:12px;border-radius:8px;border:1px solid var(--soft-border);color:var(--muted)}
+table{width:100%;border-collapse:separate;border-spacing:0;background:transparent}
+thead th{background:transparent;color:var(--muted);text-align:left;padding:10px 12px;font-size:13px;border-bottom:1px solid rgba(255,255,255,0.04)}
+tbody td{padding:10px 12px;border-bottom:1px dashed rgba(255,255,255,0.03);color:#dbeafe}
+tr:hover td{background:rgba(255,255,255,0.01)}
+small{color:var(--muted);font-size:12px}
+input:focus, textarea:focus, select:focus{outline:none;box-shadow:0 0 0 3px rgba(79,209,197,0.06);border-color:rgba(79,209,197,0.6);color:#e6eef6}
+.muted{color:var(--muted)}
+.actions button{margin-left:8px}
+
+/* responsive tweaks */
+@media (max-width:800px){
+	header{flex-direction:column;align-items:flex-start}
+	nav{margin-top:10px}
+	.kpi-row{flex-direction:column}
+}
+
+/* small, unique touches so this theme is identifiable */
+.brand-dot{display:inline-block;width:8px;height:8px;background:var(--accent);border-radius:50%;margin-right:8px;vertical-align:middle}
+
+/* keep previous simple controls as fallbacks */
+.fallback{display:none}
+
+/* hide auth-only controls until logged in */
+/* default: hide all auth-only controls */
+.auth-only{display:none}
+/* show auth-only controls when logged in (global) */
+body[data-auth='true'] .auth-only{display:inline-block}
+
+/* actions that only appear on the Orders page */
+.orders-only{display:none}
+body[data-show-orders='true'] .orders-only{display:inline-block}
+
+/* make date inputs visually nicer */
+input[type=date]{background:var(--card);border:1px solid var(--soft-border);color:var(--muted);padding:8px 10px;border-radius:8px}
+

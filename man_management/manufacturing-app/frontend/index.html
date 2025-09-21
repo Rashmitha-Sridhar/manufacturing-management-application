@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"/><title>Dashboard</title><link rel="stylesheet" href="styles.css"/></head>
+<body>
+<header>
+  <h1>Manufacturing Dashboard</h1>
+  <nav>
+    <a class="auth-only" href="index.html">Dashboard</a> |
+    <a class="auth-only" href="products.html">Products</a> |
+    <a class="auth-only" href="bom.html">BOM</a> |
+    <a class="auth-only" href="orders.html">Orders</a> |
+    <a class="auth-only" href="work_orders.html">Work Orders</a> |
+    <a class="auth-only" href="stock.html">Stock</a> |
+    <a class="auth-only" href="reports.html">Reports</a>
+  </nav>
+</header>
+<main>
+    <div id="authMessage" style="color:darkred;margin:8px 0;"></div>
+    <div id="authControls" style="margin:8px 0;">
+      <div id="loginForm">
+        <input id="emailInput" placeholder="email" />
+        <input id="passwordInput" placeholder="password" type="password" />
+        <button onclick="login()">Login</button>
+        <button onclick="signup()">Signup</button>
+      </div>
+      <div id="logoutPane" style="display:none;">
+        <span id="whoami"></span>
+        <button onclick="logout()">Logout</button>
+      </div>
+    </div>
+  <section id="kpis" class="auth-only"></section>
+  <section>
+    <h2>Manufacturing Orders</h2>
+    <div class="auth-only">
+      <button onclick="filterMOs('')">All</button>
+      <button onclick="filterMOs('planned')">Planned</button>
+      <button onclick="filterMOs('in_progress')">In Progress</button>
+      <button onclick="filterMOs('confirmed')">Confirmed</button>
+    </div>
+    <table id="moTable"><thead><tr><th>ID</th><th>Product</th><th>Qty</th><th>Status</th><th>Actions</th></tr></thead><tbody></tbody></table>
+  </section>
+  <section>
+    <h2>Raw Materials / Components</h2>
+    <table id="componentsTable"><thead><tr><th>ID</th><th>Name</th><th>Stock</th></tr></thead><tbody></tbody></table>
+  </section>
+</main>
+<script src="defensive-auth-hide.js"></script>
+<script src="scripts.js"></script>
+</body></html>

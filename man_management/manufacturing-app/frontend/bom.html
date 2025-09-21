@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"/><title>BOM</title><link rel="stylesheet" href="styles.css"/></head>
+<body>
+<script src="defensive-auth-hide.js"></script>
+<header>
+  <h1>Bill of Materials</h1>
+  <nav>
+    <a href="index.html">Dashboard</a> |
+    <a href="products.html">Products</a> |
+    <a href="bom.html">BOM</a> |
+    <a href="orders.html">Orders</a> |
+    <a href="work_orders.html">Work Orders</a> |
+    <a href="stock.html">Stock</a> |
+    <a href="reports.html">Reports</a>
+  </nav>
+</header>
+<main>
+<section class="form-row" style="align-items:flex-start;">
+  <div style="flex:1">
+    <label for="orderLookupId">Lookup BOM by Order ID</label>
+    <div style="display:flex;gap:8px;align-items:center;margin-top:6px;">
+      <input id="orderLookupId" placeholder="Enter Order ID" />
+      <button id="orderLookupBtn" class="secondary">Lookup</button>
+    </div>
+    <div id="bomResult" style="margin-top:12px"></div>
+  </div>
+</section>
+<!-- BOM form and table intentionally removed per request; only Lookup UI remains -->
+  </main>
+  <script src="scripts.js"></script>
+  </body>
+  </html>

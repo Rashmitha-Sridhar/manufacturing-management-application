@@ -1,0 +1,71 @@
+:root{
+  --bg:#0f1724; /* deep slate */
+  --panel:#0b1a2b;
+  --muted:#98a0ad;
+  --accent:#4fd1c5;
+  --accent-2:#7c5cff;
+  --card:#081122;
+  --soft-border: rgba(255,255,255,0.06);
+  --glass: rgba(255,255,255,0.03);
+  --radius:10px;
+  --text:#e6eef6;
+}
+
+/* Light theme overrides */
+:root[data-theme='light']{
+  --bg: #f6f8fb;
+  --panel: #ffffff;
+  --muted: #556070;
+  --accent: #0ea5a4;
+  --accent-2: #6b5cff;
+  --card: #ffffff;
+  --soft-border: rgba(16,24,40,0.06);
+  --glass: rgba(16,24,40,0.02);
+  --text: #0b1220;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),#071324);color:var(--text)}
+header{display:flex;align-items:center;justify-content:space-between;padding:16px 22px;background:var(--panel);border-bottom:1px solid var(--soft-border)}
+header h1{font-size:18px;margin:0;color:var(--accent-2)}
+nav a{color:var(--muted);text-decoration:none;margin-left:12px;font-size:14px}
+nav a:hover{color:var(--accent)}
+main{padding:20px}
+#authMessage{color:#bf3b3b}
+#authControls{margin-bottom:12px}
+#loginForm input, #loginForm button, input, input[type=text], input[type=password], textarea, select{background:var(--card);border:1px solid var(--soft-border);color:var(--text);padding:8px 10px;border-radius:8px;margin-right:6px}
+button{background:linear-gradient(90deg,var(--accent),var(--accent-2));border:none;color:#042226;padding:8px 12px;border-radius:8px;cursor:pointer;font-weight:600}
+button.secondary{background:transparent;border:1px solid var(--soft-border);color:var(--muted)}
+section{margin-top:14px;background:var(--glass);padding:12px;border-radius:var(--radius);border:1px solid var(--soft-border)}
+h2{margin:0 0 10px 0;font-size:16px;color:var(--text)}
+.card{display:inline-block;padding:10px 14px;border-radius:8px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border:1px solid var(--soft-border);color:var(--muted)}
+table{width:100%;border-collapse:separate;border-spacing:0;background:transparent}
+thead th{background:transparent;color:var(--muted);text-align:left;padding:10px 12px;font-size:13px;border-bottom:1px solid rgba(0,0,0,0.04)}
+tbody td{padding:10px 12px;border-bottom:1px dashed rgba(0,0,0,0.03);color:var(--text)}
+tr:hover td{background:rgba(0,0,0,0.02)}
+small{color:var(--muted);font-size:12px}
+input:focus, textarea:focus, select:focus{outline:none;box-shadow:0 0 0 3px rgba(79,209,197,0.06);border-color:rgba(79,209,197,0.6)}
+.muted{color:var(--muted)}
+.actions button{margin-left:8px}
+
+/* Theme toggle control placeholder - JS will insert the control */
+.theme-toggle{position:fixed;right:18px;top:18px;z-index:9999;background:var(--card);border:1px solid var(--soft-border);padding:8px;border-radius:999px;display:flex;align-items:center;gap:8px;color:var(--muted);cursor:pointer}
+.theme-toggle .dot{width:10px;height:10px;border-radius:50%;background:var(--accent)}
+
+@media (max-width:800px){
+  header{flex-direction:column;align-items:flex-start}
+  nav{margin-top:10px}
+}
+
+/* hide auth-only controls until logged in */
+.auth-only{display:none}
+body[data-auth='true'] .auth-only{display:inline-block}
+
+/* Defensive: hide most page content until authenticated on backend pages */
+html body:not([data-auth='true']) header nav,
+html body:not([data-auth='true']) main > :not(#authControls){
+  display:none !important;
+}
+
+/* Gentle table compactness for backend pages */
+table#productsTable th, table#productsTable td{padding:8px 10px}

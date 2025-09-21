@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"/><title>Orders</title><link rel="stylesheet" href="styles.css"/></head>
+<body>
+<script src="defensive-auth-hide.js"></script>
+<header>
+  <h1>Manufacturing Orders</h1>
+  <nav>
+    <a href="index.html">Dashboard</a> |
+    <a href="products.html">Products</a> |
+    <a href="bom.html">BOM</a> |
+    <a href="orders.html">Orders</a> |
+    <a href="work_orders.html">Work Orders</a> |
+    <a href="stock.html">Stock</a> |
+    <a href="reports.html">Reports</a>
+  </nav>
+</header>
+<main id="ordersPage">
+<form id="moForm" class="page-form">
+  <div class="form-row"><label for="product_id">Product ID</label><input id="product_id" name="product_id" placeholder="Product ID" required/></div>
+  <div class="form-row"><label for="quantity">Quantity</label><input id="quantity" name="quantity" type="number" value="1"/></div>
+  <div class="form-row"><label for="deadline">Delivery date</label><input id="deadline" name="deadline" type="date"/></div>
+  <div class="form-row"><button type="submit">Create Order</button></div>
+</form>
+<table id="moTable"><thead><tr><th>ID</th><th>Product</th><th>Qty</th><th>Status</th><th>Actions</th></tr></thead><tbody></tbody></table>
+</main>
+</script>
+<!-- optional flatpickr for browsers without native date picker -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="scripts.js"></script>
+</body></html>
